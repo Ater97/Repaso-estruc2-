@@ -16,7 +16,7 @@ namespace Repaso_estruc2_streaming
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new la());
         }
     }
 }
