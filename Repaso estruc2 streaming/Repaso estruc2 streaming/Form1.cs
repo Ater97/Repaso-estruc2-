@@ -16,7 +16,21 @@ namespace Repaso_estruc2_streaming
         {
             InitializeComponent();
             Playlists.Add("Canciones", new List<Song>());
-
+            k.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            k.FlatAppearance.BorderSize = 0;
+            k.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            k.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            k.BackColor = Color.Transparent;
+            plsgbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            plsgbtn.FlatAppearance.BorderSize = 0;
+            plsgbtn.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            plsgbtn.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            plsgbtn.BackColor = Color.Transparent;
+            Previoussong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Previoussong.FlatAppearance.BorderSize = 0;
+            Previoussong.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            Previoussong.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            Previoussong.BackColor = Color.Transparent;
         }
         Dictionary<string, List<Song>> Playlists = new Dictionary<string, List<Song>>();
         string PathSong, playlistName; //song to play
@@ -147,6 +161,11 @@ namespace Repaso_estruc2_streaming
                 Playlists.TryGetValue("Canciones", out tmlts);
                 PathSong = tmlts[0].getPath();
                 bindingSourcelst.DataSource = Playlists.Keys;
+              
+                //plsgbtn.ImageList = imageList1;
+                //plsgbtn.ImageIndex = 1;
+                //plsgbtn.BackgroundImage = plsgbtn.Image;
+              //  plsgbtn.BackgroundImageLayout = ImageLayout.Stretch;
 
                 radioButton1.Enabled = true;
                 radioButton2.Enabled = true;
@@ -177,10 +196,14 @@ namespace Repaso_estruc2_streaming
         private void plsgbtn_Click(object sender, EventArgs e)
         {
             if (p == 0)
+            {
                 PlayFile(PathSong);
+            }
             else
             {
                 player.controls.pause();
+                //plsgbtn.BackgroundImage = imageList1.Images[0];
+                //plsgbtn.BackgroundImageLayout = ImageLayout.Stretch;
                 p = 0;
             }
         }
@@ -192,6 +215,8 @@ namespace Repaso_estruc2_streaming
                 player.URL = path;
                 player.controls.play();
                 double i = player.currentMedia.duration;
+                //plsgbtn.BackgroundImage = imageList1.Images[1];
+                //plsgbtn.BackgroundImageLayout = ImageLayout.Stretch;
                 p = 1;
             }
             catch
