@@ -36,19 +36,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Allsongs = new System.Windows.Forms.Button();
             this.plsgbtn = new System.Windows.Forms.Button();
-            this.SortNamerabtn = new System.Windows.Forms.RadioButton();
-            this.SortLengthrbtn = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.k = new System.Windows.Forms.Button();
             this.Previoussong = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Artista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Uploadbtn
@@ -63,7 +66,7 @@
             // 
             // Create_Song
             // 
-            this.Create_Song.Location = new System.Drawing.Point(12, 41);
+            this.Create_Song.Location = new System.Drawing.Point(12, 99);
             this.Create_Song.Name = "Create_Song";
             this.Create_Song.Size = new System.Drawing.Size(91, 23);
             this.Create_Song.TabIndex = 1;
@@ -73,7 +76,8 @@
             // 
             // Create_Playlist
             // 
-            this.Create_Playlist.Location = new System.Drawing.Point(12, 99);
+            this.Create_Playlist.Enabled = false;
+            this.Create_Playlist.Location = new System.Drawing.Point(12, 70);
             this.Create_Playlist.Name = "Create_Playlist";
             this.Create_Playlist.Size = new System.Drawing.Size(91, 23);
             this.Create_Playlist.TabIndex = 2;
@@ -83,6 +87,7 @@
             // 
             // Search
             // 
+            this.Search.Enabled = false;
             this.Search.Location = new System.Drawing.Point(151, 74);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(91, 23);
@@ -110,16 +115,19 @@
             // 
             // Allsongs
             // 
-            this.Allsongs.Location = new System.Drawing.Point(12, 70);
+            this.Allsongs.Enabled = false;
+            this.Allsongs.Location = new System.Drawing.Point(12, 41);
             this.Allsongs.Name = "Allsongs";
             this.Allsongs.Size = new System.Drawing.Size(91, 23);
             this.Allsongs.TabIndex = 8;
             this.Allsongs.Text = "Canciones";
             this.Allsongs.UseVisualStyleBackColor = true;
+            this.Allsongs.Click += new System.EventHandler(this.Allsongs_Click);
             // 
             // plsgbtn
             // 
-            this.plsgbtn.Location = new System.Drawing.Point(232, 334);
+            this.plsgbtn.Enabled = false;
+            this.plsgbtn.Location = new System.Drawing.Point(232, 307);
             this.plsgbtn.Name = "plsgbtn";
             this.plsgbtn.Size = new System.Drawing.Size(75, 23);
             this.plsgbtn.TabIndex = 9;
@@ -127,55 +135,27 @@
             this.plsgbtn.UseVisualStyleBackColor = true;
             this.plsgbtn.Click += new System.EventHandler(this.plsgbtn_Click);
             // 
-            // SortNamerabtn
-            // 
-            this.SortNamerabtn.AutoSize = true;
-            this.SortNamerabtn.Location = new System.Drawing.Point(501, 80);
-            this.SortNamerabtn.Name = "SortNamerabtn";
-            this.SortNamerabtn.Size = new System.Drawing.Size(62, 17);
-            this.SortNamerabtn.TabIndex = 10;
-            this.SortNamerabtn.TabStop = true;
-            this.SortNamerabtn.Text = "Nombre";
-            this.SortNamerabtn.UseVisualStyleBackColor = true;
-            this.SortNamerabtn.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // SortLengthrbtn
-            // 
-            this.SortLengthrbtn.AutoSize = true;
-            this.SortLengthrbtn.Location = new System.Drawing.Point(569, 80);
-            this.SortLengthrbtn.Name = "SortLengthrbtn";
-            this.SortLengthrbtn.Size = new System.Drawing.Size(68, 17);
-            this.SortLengthrbtn.TabIndex = 11;
-            this.SortLengthrbtn.TabStop = true;
-            this.SortLengthrbtn.Text = "Duracion";
-            this.SortLengthrbtn.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(498, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Ordenar por:";
-            // 
             // k
             // 
-            this.k.Location = new System.Drawing.Point(313, 334);
+            this.k.Enabled = false;
+            this.k.Location = new System.Drawing.Point(313, 307);
             this.k.Name = "k";
             this.k.Size = new System.Drawing.Size(75, 23);
             this.k.TabIndex = 13;
             this.k.Text = "Siguiente";
             this.k.UseVisualStyleBackColor = true;
+            this.k.Click += new System.EventHandler(this.k_Click);
             // 
             // Previoussong
             // 
-            this.Previoussong.Location = new System.Drawing.Point(151, 334);
+            this.Previoussong.Enabled = false;
+            this.Previoussong.Location = new System.Drawing.Point(151, 307);
             this.Previoussong.Name = "Previoussong";
             this.Previoussong.Size = new System.Drawing.Size(75, 23);
             this.Previoussong.TabIndex = 14;
             this.Previoussong.Text = "Amterior";
             this.Previoussong.UseVisualStyleBackColor = true;
+            this.Previoussong.Click += new System.EventHandler(this.Previoussong_Click);
             // 
             // listBox1
             // 
@@ -188,61 +168,133 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Artista,
-            this.Duracion,
-            this.Año,
-            this.Album});
             this.dataGridView1.Location = new System.Drawing.Point(151, 103);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(486, 198);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(531, 198);
             this.dataGridView1.TabIndex = 16;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
-            // Nombre
+            // radioButton4
             // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Enabled = false;
+            this.radioButton4.Location = new System.Drawing.Point(89, 35);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(92, 17);
+            this.radioButton4.TabIndex = 1;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Descendente ";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
-            // Artista
+            // radioButton3
             // 
-            this.Artista.HeaderText = "Artista";
-            this.Artista.Name = "Artista";
-            this.Artista.ReadOnly = true;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Enabled = false;
+            this.radioButton3.Location = new System.Drawing.Point(6, 35);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(82, 17);
+            this.radioButton3.TabIndex = 0;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Ascendente";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // Duracion
+            // radioButton2
             // 
-            this.Duracion.HeaderText = "Duracion";
-            this.Duracion.Name = "Duracion";
-            this.Duracion.ReadOnly = true;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Enabled = false;
+            this.radioButton2.Location = new System.Drawing.Point(587, 80);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(68, 17);
+            this.radioButton2.TabIndex = 18;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Duracion";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // Año
+            // radioButton1
             // 
-            this.Año.HeaderText = "Año";
-            this.Año.Name = "Año";
-            this.Año.ReadOnly = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Enabled = false;
+            this.radioButton1.Location = new System.Drawing.Point(504, 80);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(62, 17);
+            this.radioButton1.TabIndex = 17;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Nombre";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // Album
+            // panel1
             // 
-            this.Album.HeaderText = "Album";
-            this.Album.Name = "Album";
-            this.Album.ReadOnly = true;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Controls.Add(this.radioButton3);
+            this.panel1.Location = new System.Drawing.Point(498, 19);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(184, 55);
+            this.panel1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Ordenar por:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Enabled = false;
+            this.groupBox1.Location = new System.Drawing.Point(232, 113);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(226, 95);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nombre de la playlist:";
+            this.groupBox1.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(16, 28);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(192, 20);
+            this.textBox2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(81, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "OK";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // la
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 369);
+            this.ClientSize = new System.Drawing.Size(694, 369);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Previoussong);
             this.Controls.Add(this.k);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.SortLengthrbtn);
-            this.Controls.Add(this.SortNamerabtn);
             this.Controls.Add(this.plsgbtn);
             this.Controls.Add(this.Allsongs);
             this.Controls.Add(this.label1);
@@ -254,7 +306,12 @@
             this.Name = "la";
             this.Text = "bb";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DoubleClick += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,18 +327,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Allsongs;
         private System.Windows.Forms.Button plsgbtn;
-        private System.Windows.Forms.RadioButton SortNamerabtn;
-        private System.Windows.Forms.RadioButton SortLengthrbtn;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button k;
         private System.Windows.Forms.Button Previoussong;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Artista;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duracion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Album;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

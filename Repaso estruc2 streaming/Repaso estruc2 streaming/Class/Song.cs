@@ -20,12 +20,21 @@ namespace Repaso_estruc2_streaming.Class
         }
 
         public string Name { get; set; }
-        public int Year { get; set; }
-        public string Album { get; set; }
         public string Artist { get; set; }
         public TimeSpan Length { get; set; }
+        public string Album { get; set; }
+        public int Year { get; set; }
 
         private string Path { get; set; }
         private string FileName { get; set; }
+
+        public string getPath()
+        {
+            return Path;
+        }
+        public string getFileName()
+        {
+            return FileName;
+        }
     }
 }
