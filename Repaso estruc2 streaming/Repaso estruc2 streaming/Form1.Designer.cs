@@ -50,9 +50,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Addplaylst = new System.Windows.Forms.Button();
-            this.DeletePlaylst = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.DeletePlaylst = new System.Windows.Forms.Button();
+            this.Addplaylst = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // Uploadbtn
             // 
-            this.Uploadbtn.Location = new System.Drawing.Point(12, 12);
+            this.Uploadbtn.Location = new System.Drawing.Point(12, 17);
             this.Uploadbtn.Name = "Uploadbtn";
             this.Uploadbtn.Size = new System.Drawing.Size(91, 23);
             this.Uploadbtn.TabIndex = 0;
@@ -72,7 +73,7 @@
             // Create_Song
             // 
             this.Create_Song.Enabled = false;
-            this.Create_Song.Location = new System.Drawing.Point(12, 99);
+            this.Create_Song.Location = new System.Drawing.Point(12, 104);
             this.Create_Song.Name = "Create_Song";
             this.Create_Song.Size = new System.Drawing.Size(91, 23);
             this.Create_Song.TabIndex = 1;
@@ -83,7 +84,7 @@
             // Create_Playlist
             // 
             this.Create_Playlist.Enabled = false;
-            this.Create_Playlist.Location = new System.Drawing.Point(12, 70);
+            this.Create_Playlist.Location = new System.Drawing.Point(12, 75);
             this.Create_Playlist.Name = "Create_Playlist";
             this.Create_Playlist.Size = new System.Drawing.Size(91, 23);
             this.Create_Playlist.TabIndex = 2;
@@ -94,7 +95,7 @@
             // Search
             // 
             this.Search.Enabled = false;
-            this.Search.Location = new System.Drawing.Point(151, 74);
+            this.Search.Location = new System.Drawing.Point(151, 79);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(91, 23);
             this.Search.TabIndex = 3;
@@ -104,16 +105,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(248, 77);
+            this.textBox1.Location = new System.Drawing.Point(248, 82);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(226, 20);
+            this.textBox1.Size = new System.Drawing.Size(244, 20);
             this.textBox1.TabIndex = 5;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 125);
+            this.label1.Location = new System.Drawing.Point(12, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 7;
@@ -122,7 +123,7 @@
             // Allsongs
             // 
             this.Allsongs.Enabled = false;
-            this.Allsongs.Location = new System.Drawing.Point(12, 41);
+            this.Allsongs.Location = new System.Drawing.Point(12, 46);
             this.Allsongs.Name = "Allsongs";
             this.Allsongs.Size = new System.Drawing.Size(91, 23);
             this.Allsongs.TabIndex = 8;
@@ -133,7 +134,7 @@
             // plsgbtn
             // 
             this.plsgbtn.Enabled = false;
-            this.plsgbtn.Location = new System.Drawing.Point(232, 307);
+            this.plsgbtn.Location = new System.Drawing.Point(232, 312);
             this.plsgbtn.Name = "plsgbtn";
             this.plsgbtn.Size = new System.Drawing.Size(75, 23);
             this.plsgbtn.TabIndex = 9;
@@ -144,7 +145,7 @@
             // k
             // 
             this.k.Enabled = false;
-            this.k.Location = new System.Drawing.Point(313, 307);
+            this.k.Location = new System.Drawing.Point(313, 312);
             this.k.Name = "k";
             this.k.Size = new System.Drawing.Size(75, 23);
             this.k.TabIndex = 13;
@@ -155,7 +156,7 @@
             // Previoussong
             // 
             this.Previoussong.Enabled = false;
-            this.Previoussong.Location = new System.Drawing.Point(151, 307);
+            this.Previoussong.Location = new System.Drawing.Point(151, 312);
             this.Previoussong.Name = "Previoussong";
             this.Previoussong.Size = new System.Drawing.Size(75, 23);
             this.Previoussong.TabIndex = 14;
@@ -166,7 +167,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 141);
+            this.listBox1.Location = new System.Drawing.Point(12, 146);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 160);
             this.listBox1.TabIndex = 15;
@@ -178,7 +179,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(151, 103);
+            this.dataGridView1.Location = new System.Drawing.Point(151, 108);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -191,7 +192,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Enabled = false;
-            this.radioButton4.Location = new System.Drawing.Point(89, 35);
+            this.radioButton4.Location = new System.Drawing.Point(587, 85);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(92, 17);
             this.radioButton4.TabIndex = 1;
@@ -204,7 +205,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Enabled = false;
-            this.radioButton3.Location = new System.Drawing.Point(6, 35);
+            this.radioButton3.Location = new System.Drawing.Point(504, 85);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(82, 17);
             this.radioButton3.TabIndex = 0;
@@ -217,7 +218,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Enabled = false;
-            this.radioButton2.Location = new System.Drawing.Point(587, 80);
+            this.radioButton2.Location = new System.Drawing.Point(89, 35);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(68, 17);
             this.radioButton2.TabIndex = 18;
@@ -230,7 +231,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Enabled = false;
-            this.radioButton1.Location = new System.Drawing.Point(504, 80);
+            this.radioButton1.Location = new System.Drawing.Point(7, 35);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(62, 17);
             this.radioButton1.TabIndex = 17;
@@ -242,9 +243,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.radioButton4);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Location = new System.Drawing.Point(498, 19);
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Location = new System.Drawing.Point(498, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(184, 55);
             this.panel1.TabIndex = 2;
@@ -263,7 +264,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(232, 113);
+            this.groupBox1.Location = new System.Drawing.Point(232, 118);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(226, 95);
             this.groupBox1.TabIndex = 19;
@@ -294,33 +295,13 @@
             this.groupBox2.Controls.Add(this.DeletePlaylst);
             this.groupBox2.Controls.Add(this.Addplaylst);
             this.groupBox2.Enabled = false;
-            this.groupBox2.Location = new System.Drawing.Point(196, 4);
+            this.groupBox2.Location = new System.Drawing.Point(248, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(244, 70);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Editar playlist";
             this.groupBox2.Visible = false;
-            // 
-            // Addplaylst
-            // 
-            this.Addplaylst.Location = new System.Drawing.Point(6, 15);
-            this.Addplaylst.Name = "Addplaylst";
-            this.Addplaylst.Size = new System.Drawing.Size(71, 45);
-            this.Addplaylst.TabIndex = 0;
-            this.Addplaylst.Text = "Agregar canciones";
-            this.Addplaylst.UseVisualStyleBackColor = true;
-            this.Addplaylst.Click += new System.EventHandler(this.Addplaylst_Click);
-            // 
-            // DeletePlaylst
-            // 
-            this.DeletePlaylst.Location = new System.Drawing.Point(83, 15);
-            this.DeletePlaylst.Name = "DeletePlaylst";
-            this.DeletePlaylst.Size = new System.Drawing.Size(73, 45);
-            this.DeletePlaylst.TabIndex = 1;
-            this.DeletePlaylst.Text = "Eliminar canciones";
-            this.DeletePlaylst.UseVisualStyleBackColor = true;
-            this.DeletePlaylst.Click += new System.EventHandler(this.DeletePlaylst_Click);
             // 
             // button2
             // 
@@ -332,16 +313,47 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // DeletePlaylst
+            // 
+            this.DeletePlaylst.Location = new System.Drawing.Point(83, 15);
+            this.DeletePlaylst.Name = "DeletePlaylst";
+            this.DeletePlaylst.Size = new System.Drawing.Size(73, 45);
+            this.DeletePlaylst.TabIndex = 1;
+            this.DeletePlaylst.Text = "Eliminar canciones";
+            this.DeletePlaylst.UseVisualStyleBackColor = true;
+            this.DeletePlaylst.Click += new System.EventHandler(this.DeletePlaylst_Click);
+            // 
+            // Addplaylst
+            // 
+            this.Addplaylst.Location = new System.Drawing.Point(6, 15);
+            this.Addplaylst.Name = "Addplaylst";
+            this.Addplaylst.Size = new System.Drawing.Size(71, 45);
+            this.Addplaylst.TabIndex = 0;
+            this.Addplaylst.Text = "Agregar canciones";
+            this.Addplaylst.UseVisualStyleBackColor = true;
+            this.Addplaylst.Click += new System.EventHandler(this.Addplaylst_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(110, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 26);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Playlist actual: \r\n*Debe cargar una lista*\r\n";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // la
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 369);
+            this.ClientSize = new System.Drawing.Size(696, 341);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.Previoussong);
@@ -396,6 +408,7 @@
         private System.Windows.Forms.Button DeletePlaylst;
         private System.Windows.Forms.Button Addplaylst;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
