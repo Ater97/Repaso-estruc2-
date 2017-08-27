@@ -47,11 +47,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Addplaylst = new System.Windows.Forms.Button();
+            this.DeletePlaylst = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Uploadbtn
@@ -66,11 +71,12 @@
             // 
             // Create_Song
             // 
+            this.Create_Song.Enabled = false;
             this.Create_Song.Location = new System.Drawing.Point(12, 99);
             this.Create_Song.Name = "Create_Song";
             this.Create_Song.Size = new System.Drawing.Size(91, 23);
             this.Create_Song.TabIndex = 1;
-            this.Create_Song.Text = "Crear cancion";
+            this.Create_Song.Text = "Editar Playlist";
             this.Create_Song.UseVisualStyleBackColor = true;
             this.Create_Song.Click += new System.EventHandler(this.Create_Song_Click);
             // 
@@ -153,7 +159,7 @@
             this.Previoussong.Name = "Previoussong";
             this.Previoussong.Size = new System.Drawing.Size(75, 23);
             this.Previoussong.TabIndex = 14;
-            this.Previoussong.Text = "Amterior";
+            this.Previoussong.Text = "Anterior";
             this.Previoussong.UseVisualStyleBackColor = true;
             this.Previoussong.Click += new System.EventHandler(this.Previoussong_Click);
             // 
@@ -265,13 +271,6 @@
             this.groupBox1.Text = "Nombre de la playlist:";
             this.groupBox1.Visible = false;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(16, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 20);
-            this.textBox2.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(81, 54);
@@ -282,11 +281,63 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(16, 28);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(192, 20);
+            this.textBox2.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.DeletePlaylst);
+            this.groupBox2.Controls.Add(this.Addplaylst);
+            this.groupBox2.Enabled = false;
+            this.groupBox2.Location = new System.Drawing.Point(196, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(244, 70);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Editar playlist";
+            this.groupBox2.Visible = false;
+            // 
+            // Addplaylst
+            // 
+            this.Addplaylst.Location = new System.Drawing.Point(6, 15);
+            this.Addplaylst.Name = "Addplaylst";
+            this.Addplaylst.Size = new System.Drawing.Size(71, 45);
+            this.Addplaylst.TabIndex = 0;
+            this.Addplaylst.Text = "Agregar canciones";
+            this.Addplaylst.UseVisualStyleBackColor = true;
+            this.Addplaylst.Click += new System.EventHandler(this.Addplaylst_Click);
+            // 
+            // DeletePlaylst
+            // 
+            this.DeletePlaylst.Location = new System.Drawing.Point(83, 15);
+            this.DeletePlaylst.Name = "DeletePlaylst";
+            this.DeletePlaylst.Size = new System.Drawing.Size(73, 45);
+            this.DeletePlaylst.TabIndex = 1;
+            this.DeletePlaylst.Text = "Eliminar canciones";
+            this.DeletePlaylst.UseVisualStyleBackColor = true;
+            this.DeletePlaylst.Click += new System.EventHandler(this.DeletePlaylst_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(163, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 45);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Borrar playlist";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // la
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 369);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.radioButton1);
@@ -312,6 +363,7 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,6 +392,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button DeletePlaylst;
+        private System.Windows.Forms.Button Addplaylst;
+        private System.Windows.Forms.Button button2;
     }
 }
 

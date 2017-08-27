@@ -14,6 +14,8 @@ namespace Repaso_estruc2_streaming
         public la()
         {
             InitializeComponent();
+                    Playlists.Add("Canciones", new List<Song>());
+
         }
         Dictionary<string, List<Song>> Playlists = new Dictionary<string, List<Song>>();
         string PathSong, playlistName; //song to play
@@ -23,8 +25,6 @@ namespace Repaso_estruc2_streaming
         BindingSource bindingSourcelst = new BindingSource();
         int p = 0, l = 0, u = 0;
         List<Song> tmlts; //lst for everything
-        
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -32,11 +32,16 @@ namespace Repaso_estruc2_streaming
 
         private void Create_Song_Click(object sender, EventArgs e)
         {
+            bindingSource = new BindingSource();
+            Playlists.TryGetValue("Canciones", out tmlts);
+            bindingSource.DataSource = tmlts;
+            dataGridView1.DataSource = bindingSource;
+            groupBox2.Enabled = true;
+            groupBox2.Visible = true;
         }
 
         private void Create_Playlist_Click(object sender, EventArgs e)
         {
-
             if (dataGridView1.SelectedRows.Count != 0)
             {
                 groupBox1.Enabled = true;
@@ -49,14 +54,34 @@ namespace Repaso_estruc2_streaming
         }
         private void CreatePlaylist()
         {
-            bindingSourcelst = new BindingSource();
-            Playlists.Add(playlistName, new List<Song>());
-            // foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            try
             {
-
+                u = 0;
+                bindingSourcelst = new BindingSource();
+                List<Song> tmp = new List<Song>();
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    if(tmp.Any(item => item.Name == tmlts[r.Index].Name))
+                    {
+                        err.Add(tmlts[r.Index].Name);
+                        break;
+                    }
+                    tmp.Add(tmlts[r.Index]);
+                }
+                if (err.Count > 0)
+                {
+                    var message = string.Join(Environment.NewLine, err);
+                    MessageBox.Show("Las siguientes canciones ya se encuentrar en la playlist: " + Environment.NewLine + message);
+                    err = new List<string>();
+                }
+                Playlists.Add(playlistName, tmp);
+                bindingSourcelst.DataSource = Playlists.Keys;
+                listBox1.DataSource = bindingSourcelst;
             }
-            bindingSourcelst.DataSource = Playlists.Keys;
-            listBox1.DataSource = bindingSourcelst;
+            catch
+            {
+               MessageBox.Show("Ocurrio un error, intente de nuevo");
+            }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -101,11 +126,11 @@ namespace Repaso_estruc2_streaming
                             err.Add(paths[i]);
                         }
                     }
-                    Playlists.Add("Canciones", Songs);
+                    Playlists["Canciones"].AddRange(Songs);
                     if (err.Count > 0)
                     {
                         var message = string.Join(Environment.NewLine, err);
-                        MessageBox.Show("Error con: " + message);
+                        MessageBox.Show("Error con: " + Environment.NewLine + message);
                         err = new List<string>();
                     }
                 }
@@ -114,10 +139,7 @@ namespace Repaso_estruc2_streaming
                 Playlists.TryGetValue("Canciones", out tmlts);
                 bindingSource.DataSource = tmlts;
                 bindingSourcelst.DataSource = Playlists.Keys;
-                listBox1.DataSource = bindingSourcelst;
-                dataGridView1.DataSource = bindingSource;
-               // tmlts = ((IEnumerable)bindingSource.DataSource).Cast<Song>().ToList();
-                u = 0;
+
                 radioButton1.Enabled = true;
                 radioButton2.Enabled = true;
                 radioButton3.Enabled = true;
@@ -130,10 +152,18 @@ namespace Repaso_estruc2_streaming
                 plsgbtn.Enabled = true;
                 Previoussong.Enabled = true;
                 Search.Enabled = true;
+                listBox1.DataSource = bindingSourcelst;
+                u = 0;
+
+                bindingSource = new BindingSource();
+                Playlists.TryGetValue("Canciones", out tmlts);
+                bindingSource.DataSource = tmlts;
+                dataGridView1.DataSource = bindingSource;
+
             }
-            catch
+              catch
             {
-                MessageBox.Show("Error");
+              MessageBox.Show("Error");
             }
         }
 
@@ -172,7 +202,8 @@ namespace Repaso_estruc2_streaming
         { try
             {
                 Song S;
-                if (Playlists.TryGetValue(playlistName, out tmlts))
+                Playlists.TryGetValue(playlistName, out tmlts);
+                if (tmlts.Any(item => item.Name.ToUpper() == textBox1.Text.ToUpper()))
                 {
                     S = tmlts.Find(i => i.Name.ToUpper() == textBox1.Text.ToUpper());
 
@@ -182,7 +213,20 @@ namespace Repaso_estruc2_streaming
                 }
                 else
                 {
-                    MessageBox.Show("La cancion no se encuentra, intente en otra playlist");
+                    Playlists.TryGetValue("Canciones", out tmlts);
+                    if (tmlts.Any(item => item.Name.ToUpper() == textBox1.Text.ToUpper()))
+                    {
+                        S = tmlts.Find(i => i.Name.ToUpper() == textBox1.Text.ToUpper());
+
+                        bindingSource = new BindingSource();
+                        bindingSource.DataSource = S;
+                        dataGridView1.DataSource = bindingSource;
+                        MessageBox.Show("La cancion no se encuentra en la playlist " + playlistName + Environment.NewLine + ", pero se encuentra en Todas las canciones :)");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cancion no se encuentra");
+                    }
                 }
             }
             catch
@@ -194,7 +238,27 @@ namespace Repaso_estruc2_streaming
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                string txt = listBox1.GetItemText(listBox1.SelectedItem);
+                dataGridView1.DataSource = tmlts = Playlists[txt];
+                p = 0;
+                playlistName = txt;
+                if(txt=="Canciones")
+                {
+                    groupBox2.Enabled = false;
+                    groupBox2.Visible = false;
+                    Create_Song.Enabled = false;
+                }
+                else
+                {
+                    Create_Song.Enabled = true;
+                }
+            }
+             catch
+            {
+                MessageBox.Show("Error: carga playlist");
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -206,6 +270,7 @@ namespace Repaso_estruc2_streaming
         {
             l = e.RowIndex;
             PlayFile(tmlts[l].getPath());
+            p = 0;
         }
 
         private void Previoussong_Click(object sender, EventArgs e)
@@ -262,6 +327,74 @@ namespace Repaso_estruc2_streaming
             SetDatagrid();
         }
 
+        private void Addplaylst_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Song> tmp = new List<Song>();
+                foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+                {
+                    if (tmp.Any(item => item.Name == tmlts[r.Index].Name))
+                    {
+                        err.Add(tmlts[r.Index].Name);
+                        break;
+                    }
+                    tmp.Add(tmlts[r.Index]);
+                }
+                if (err.Count > 0)
+                {
+                    var message = string.Join(Environment.NewLine, err);
+                    MessageBox.Show("Las siguientes canciones ya se encuentrar en la playlist: " + Environment.NewLine + message);
+                    err = new List<string>();
+                }
+                Playlists[playlistName].AddRange(tmp);
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+        }
+
+        private void DeletePlaylst_Click(object sender, EventArgs e)
+        {
+            List<Song> tmp = new List<Song>();
+            foreach (DataGridViewRow r in dataGridView1.SelectedRows)
+            {
+                if (tmp.Any(item => item.Name != tmlts[r.Index].Name))
+                {
+                    err.Add(tmlts[r.Index].Name);
+                    break;
+                }
+                tmp.Add(tmlts[r.Index]);
+            }
+            if (err.Count > 0)
+            {
+                var message = string.Join(Environment.NewLine, err);
+                MessageBox.Show("Las siguientes canciones no se encuentran en la playlist: " + Environment.NewLine + message);
+                err = new List<string>();
+            }
+            Playlists[playlistName] = tmp.Except(Playlists[playlistName]).ToList();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Playlists.Remove(playlistName);
+                bindingSourcelst = new BindingSource();
+                bindingSourcelst.DataSource = Playlists.Keys;
+                listBox1.DataSource = bindingSourcelst;
+                bindingSource = new BindingSource();
+                Playlists.TryGetValue("Canciones", out tmlts);
+                bindingSource.DataSource = tmlts;
+                dataGridView1.DataSource = bindingSource;
+            }
+            catch
+            {
+                MessageBox.Show("No se logro eliminar la playlist");
+            }
+        }
+
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
             SetDatagrid();
@@ -269,22 +402,33 @@ namespace Repaso_estruc2_streaming
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int h = 0;
-            while (h == 0)
+            try
             {
                 if (!Playlists.Keys.Contains(textBox2.Text))
                 {
-                    h = 1;
-                    break;
+                    if (textBox2.Text.Trim() != "")
+                    {
+                        groupBox1.Enabled = false;
+                        groupBox1.Visible = false;
+                        playlistName = textBox2.Text;
+                        CreatePlaylist();
+                        bindingSource = new BindingSource();
+                        Playlists.TryGetValue(playlistName, out tmlts);
+                        bindingSource.DataSource = tmlts;
+                        dataGridView1.DataSource = bindingSource;
+                    }
+                    else
+                        MessageBox.Show("Ingrese un nombre");
                 }
-                MessageBox.Show("Ya existe una playlist con ese nombre");
+                else
+                    MessageBox.Show("Ya existe una playlist con ese nombre");
+               
                 textBox2.Text = "";
             }
-            groupBox1.Enabled = false;
-            groupBox1.Visible = false;
-            playlistName = textBox2.Text;
-            CreatePlaylist();
-            textBox2.Text = "";
+            catch
+            {
+                MessageBox.Show("Error");
+            }
         }
 
         private void SetDatagrid()
@@ -321,7 +465,7 @@ namespace Repaso_estruc2_streaming
             }
             catch
             {
-                MessageBox.Show("Verifique las canciones cargadas");
+               MessageBox.Show("Verifique las canciones cargadas");
             }
         }
     }
